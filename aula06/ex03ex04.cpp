@@ -22,8 +22,8 @@ int main(){
 	//minha_pilha.push(6);
 	//minha_pilha.push(5);
 
-	//imprime_pilha(minha_pilha);
-	//somarValores(minha_pilha);
+	imprime_pilha(minha_pilha);
+	somarValores(minha_pilha);
 	buscarValor(minha_pilha, 9);
 	getch();
 	return 0;
