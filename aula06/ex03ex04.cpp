@@ -49,7 +49,7 @@ void somarValores(stack<int> pilha){
 		resultado += pilha.top();
 		pilha.pop();
 	}
-	printf("%d\n", resultado);
+	printf("Soma: %d\n", resultado);
 }
 
 void imprime_pilha(stack<int> pilha){
