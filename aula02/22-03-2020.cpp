@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 struct acao{
 	char nome_companhia[50];
 	char area_atuacao[50];
@@ -20,7 +19,7 @@ void alteraTodos(float novoValor);
 void printRelatorio();
 
 int main(){
-	
+
 	for(int i = 0 ; i < qntAcoesInseridas ; i ++){
 
 
@@ -42,7 +41,7 @@ int main(){
 		printf("Valor Anterior: ");
 		scanf("%f", &minhas_acoes[i].valor_anterior);
 
-		
+
 		float valorAtual =  minhas_acoes[i].valor_atual;
 		float valorAnterior = minhas_acoes[i].valor_anterior;
 
@@ -68,7 +67,7 @@ void printRelatorio(){
 		printf("Valor Atual: %.2f\n", minhas_acoes[i].valor_atual);
 		printf("Valor Anterior: %.2f\n", minhas_acoes[i].valor_anterior);
 		printf("Variação: %.2f\n", minhas_acoes[i].variacao);
-	}	
+	}
 }
 
 void printAcoesAbaixo(struct acao acaoQueDigitei){
@@ -86,7 +85,7 @@ void printAcoesAbaixo(struct acao acaoQueDigitei){
 
 void alteraTodos(float novoValor){
 	for(int i = 0 ; i < qntAcoesInseridas ; i ++){
-		
+
 		minhas_acoes[i].valor_anterior = minhas_acoes[i].valor_atual;
 		minhas_acoes[i].valor_atual = novoValor;
 
