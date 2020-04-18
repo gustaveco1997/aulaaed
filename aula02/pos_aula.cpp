@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 int main(void){
+
   int x = 2, y = 3;
   int z = x + y;
 
@@ -15,6 +16,7 @@ int main(void){
   printf("x = %d\n", x);
   printf("y = %d\n", y);
   printf("z = %d\n", z);
+
   printf("\n");
 
   int *px = &x;
