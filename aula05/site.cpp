@@ -32,7 +32,6 @@ int main(void){
     pNode2->pLink = pNode3;
     pNode3->pLink = NULL;
 
-
     //Mostrando a lista.
     if(pNode1)
         displayLL(pNode1);
