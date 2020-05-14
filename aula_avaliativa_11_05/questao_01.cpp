@@ -129,15 +129,15 @@ void removerNumeroPilha2(){
   stack<int> pilha_temp = pilha2;
   stack<int> pilha_aux;
 
-	while(!pilha_temp.empty()){
+  while(!pilha_temp.empty()){
     int numero = pilha_temp.top();
     if(numero % 2 != 0)
       pilhaImpares.push(numero);
     else
       pilha_aux.push(numero);
 
-		pilha_temp.pop();
-	}
+      pilha_temp.pop();
+  }
 
   pilha2 = pilha_aux;
 }
@@ -151,9 +151,9 @@ void retirarImpares(){
 int somaPilha1(){
   int total = 0;
   stack<int> pilha_temp = pilha1;
-	while(!pilha_temp.empty()){
+  while(!pilha_temp.empty()){
     total += pilha_temp.top();
-		pilha_temp.pop();
+	   pilha_temp.pop();
 	}
 
   return total;
@@ -187,18 +187,19 @@ void verificarSomaPilhas(){
 void imprimirPilha1(){
   stack<int> pilha_temp = pilha1;
 	printf("\nPilha 1\n");
-	while(!pilha_temp.empty()){
-		printf("-> %d \n", pilha_temp.top());
-		pilha_temp.pop();
+  while(!pilha_temp.empty()){
+	   printf("-> %d \n", pilha_temp.top());
+    pilha_temp.pop();
 	}
 }
+
 void imprimirPilha2(){
   stack<int> pilha_temp = pilha2;
-	printf("\nPilha 2\n");
-	while(!pilha_temp .empty()){
-		printf("-> %d \n", pilha_temp .top());
-		pilha_temp .pop();
-	}
+  printf("\nPilha 2\n");
+  while(!pilha_temp .empty()){
+    printf("-> %d \n", pilha_temp .top());
+    pilha_temp .pop();
+  }
 }
 
 void imprimirPilhas(){
