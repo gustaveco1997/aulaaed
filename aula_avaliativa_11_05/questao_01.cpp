@@ -153,18 +153,19 @@ int somaPilha1(){
   stack<int> pilha_temp = pilha1;
   while(!pilha_temp.empty()){
     total += pilha_temp.top();
-	   pilha_temp.pop();
-	}
+    pilha_temp.pop();
+  }
 
   return total;
 }
+
 int somaPilha2(){
   int total = 0;
   stack<int> pilha_temp = pilha2;
-	while(!pilha_temp.empty()){
+  while(!pilha_temp.empty()){
     total += pilha_temp.top();
-		pilha_temp.pop();
-	}
+    pilha_temp.pop();
+  }
 
   return total;
 }
@@ -186,11 +187,11 @@ void verificarSomaPilhas(){
 
 void imprimirPilha1(){
   stack<int> pilha_temp = pilha1;
-	printf("\nPilha 1\n");
+  printf("\nPilha 1\n");
   while(!pilha_temp.empty()){
-	   printf("-> %d \n", pilha_temp.top());
+    printf("-> %d \n", pilha_temp.top());
     pilha_temp.pop();
-	}
+  }
 }
 
 void imprimirPilha2(){
