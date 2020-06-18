@@ -108,35 +108,3 @@ void imprimir_fila(queue<Cliente> clientes){
   }
   printf("\n");
 }
-
-
-  //int totalPessoas = 4;
-
-
-  //mock
-  /*int qntsCompradas[totalPessoas] = {2,5,1,7};
-  int valoreUnitarios[totalPessoas] = {1,2,3,4};
-  int totais[totalPessoas] = {50,12,30,23};
-
-  Cliente c1,c2,c3,c4;
-  strcpy(c1.nome, "Gustavo");
-  c1.qntComprada = qntsCompradas[1];
-  c1.valorUnitario = valoreUnitarios[1];
-  c1.total = totais[1];
-
-
-  strcpy(c2.nome, "Henrique");
-  c2.qntComprada = qntsCompradas[2];
-  c2.valorUnitario = valoreUnitarios[2];
-  c2.total = totais[2];
-
-  strcpy(c3.nome, "Paula");
-  c3.qntComprada = qntsCompradas[3];
-  c3.valorUnitario = valoreUnitarios[3];
-  c3.total = totais[3];
-
-
-  strcpy(c4.nome, "Daiane");
-  c4.qntComprada = qntsCo*mpradas[0];
-  c4.valorUnitario = valoreUnitarios[0];
-  c4.total = totais[0];*/

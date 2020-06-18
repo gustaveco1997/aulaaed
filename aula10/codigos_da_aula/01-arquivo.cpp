@@ -34,7 +34,6 @@ int main(){
     }
 
 
-
     fprintf(arquivo,"TesteSauer 234");
     fclose(arquivo);
 

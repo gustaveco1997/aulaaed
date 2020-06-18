@@ -114,6 +114,7 @@ void pegarMenorVezes(){
   int nMenorQnt = -1;
   int nQntEncontradas = 99;
 
+  //pega o primeiro que menos se repete
   for(it = listaSemRepetidos.begin(); it != listaSemRepetidos.end() ; it ++){
     int qntEncontradas = 0;
     for(it2 = listaTemp.begin() ; it2 != listaTemp.end() ; it2 ++){
