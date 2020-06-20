@@ -20,8 +20,8 @@ struct Data{
 struct Vacina{
 	int numeroVacina;
 	char *dataFabricacao;
-  char *dataValidade;
-  char *nomeLaboratorio;
+	char *dataValidade;
+	char *nomeLaboratorio;
 	int idLaboratorio;
 };
 
@@ -125,15 +125,15 @@ int calculaHash(int valor){
 }
 
 int main(){
-  setlocale(LC_ALL, "Portuguese");
+	setlocale(LC_ALL, "Portuguese");
 	startLaboratorios();
 	criarArquivoPassword();
 
 	printf("\n        *** Seja bem vindo ao SGV *** \n");
 	printf("\n *** Sistema de Gerenciamento de Vacinas ***\n");
 	exibirMenuLogin();
-  //exibirMenu();
-  return 0;
+	//exibirMenu();
+	return 0;
 }
 
 void startLaboratorios(){
@@ -141,19 +141,19 @@ void startLaboratorios(){
 	//strcpy(labRitmo.nome, "Ritmo"); //Só funciona com o strcpy
 	labRitmo.id = 999;
 	labRitmo.nome = "Ritmo";
-  labRitmo.maxDiaria = 30000;
+	labRitmo.maxDiaria = 30000;
 
 	labBed.id = 777;
 	labBed.nome = "Bed";
-  labBed.maxDiaria = 20000;
+	labBed.maxDiaria = 20000;
 
 	labComp.id = 555;
 	labComp.nome = "Comp";
-  labComp.maxDiaria = 18000;
+	labComp.maxDiaria = 18000;
 
 	labRaja.id = 333;
 	labRaja.nome = "Raja";
-  labRaja.maxDiaria = 15000;
+	labRaja.maxDiaria = 15000;
 
 
 	laboratorios.push_back(labRaja);
