@@ -29,8 +29,8 @@ struct Vacina{
 struct Laboratorio{
 	int id;
 	char *nome;
-  int maxDiaria;
-  list<Vacina> vacinas;
+	int maxDiaria;
+	list<Vacina> vacinas;
 };
 
 struct Galpao{
@@ -120,8 +120,8 @@ float precoVacinaUnid = 22.90;
 //funcao para calcular hash de numeros inteiros
 int calculaHash(int valor){
 	std::tr1::hash<float> hash_fn;  //Definição do Tipo de Dados Hash chamado hash_fn
-  size_t str_hash = hash_fn(valor); //Faz o calculo do HASH
-  return(str_hash); //Retorna o Hash
+	size_t str_hash = hash_fn(valor); //Faz o calculo do HASH
+	return(str_hash); //Retorna o Hash
 }
 
 int main(){
@@ -188,8 +188,8 @@ void produzirVacinas(int labInt){
 	scanf("%s", &dataValidade);
 	fflush(stdin);
 
-	 if (strcmp(dataValidade, "p") == 0){
-		 strcpy(dataValidade, "06/2027");
+	if (strcmp(dataValidade, "p") == 0){
+		strcpy(dataValidade, "06/2027");
 	}
 
 	int idLaboratorio;
@@ -198,17 +198,17 @@ void produzirVacinas(int labInt){
 
 	switch (labInt){
 		case 1:
-			laboratorio = &labRitmo;
-			break;
+		laboratorio = &labRitmo;
+		break;
 		case 2:
-			laboratorio = &labBed;
-			break;
+		laboratorio = &labBed;
+		break;
 		case 3:
-			laboratorio = &labComp;
-			break;
+		laboratorio = &labComp;
+		break;
 		case 4:
-			laboratorio = &labRaja;
-			break;
+		laboratorio = &labRaja;
+		break;
 	}
 
 	int totalProduzidasLab = laboratorio->vacinas.size();
@@ -270,37 +270,37 @@ list<Vacina> obterVacinas(char *nomeLaboratorio, int qnt){
 
 //Menu Principal e segurança
 void exibirMenu(){
-  printf("\n---------- MENU ----------\n");
-  printf("1 - Produzir Vacinas\n");
-  printf("2 - Buscar Vacinas\n");
-  printf("3 - Distribuir Vacinas\n");
-  printf("5 - Sair\n");
+	printf("\n---------- MENU ----------\n");
+	printf("1 - Produzir Vacinas\n");
+	printf("2 - Buscar Vacinas\n");
+	printf("3 - Distribuir Vacinas\n");
+	printf("5 - Sair\n");
 
-  int valor = 0;
-  printf("Opção: ");
-  scanf("%d", &valor);
+	int valor = 0;
+	printf("Opção: ");
+	scanf("%d", &valor);
 
-  switch (valor) {
-    case 1:
-			limparTela();
-      exibirMenuEscolherLabProducao();
-      break;
-    case 2:
-			limparTela();
-			exibirMenuListarVacinas();
-      break;
-    case 3:
-			limparTela();
-			exibirMenuDistribuicaoVacinas();
-      break;
-    case 4:
-			limparTela();
-      break;
-    case 7:
-      //11 é saída com sucesso
-      exit(11);
-      break;
-  }
+	switch (valor) {
+		case 1:
+		limparTela();
+		exibirMenuEscolherLabProducao();
+		break;
+		case 2:
+		limparTela();
+		exibirMenuListarVacinas();
+		break;
+		case 3:
+		limparTela();
+		exibirMenuDistribuicaoVacinas();
+		break;
+		case 4:
+		limparTela();
+		break;
+		case 7:
+		//11 é saída com sucesso
+		exit(11);
+		break;
+	}
 }
 
 void retirarVacinasNoLaboratorio(){
@@ -319,25 +319,25 @@ void retirarVacinasNoLaboratorio(){
 
 	switch (valor) {
 		case 1:
-			idLaboratorio = labRitmo.id;
-			break;
+		idLaboratorio = labRitmo.id;
+		break;
 		case 2:
-			idLaboratorio = labBed.id;
-			break;
+		idLaboratorio = labBed.id;
+		break;
 		case 3:
-			idLaboratorio = labRaja.id;
-			break;
+		idLaboratorio = labRaja.id;
+		break;
 		case 4:
-			idLaboratorio = labComp.id;
-			break;
+		idLaboratorio = labComp.id;
+		break;
 		case 5:
-			limparTela();
-			exibirMenuDistribuicaoVacinas();
-			break;
+		limparTela();
+		exibirMenuDistribuicaoVacinas();
+		break;
 		default:
-			printf("\n***** Opção Inválida *****\n");
-			retirarVacinasNoLaboratorio();
-			return;
+		printf("\n***** Opção Inválida *****\n");
+		retirarVacinasNoLaboratorio();
+		return;
 	}
 
 	Laboratorio lab;
@@ -349,50 +349,50 @@ void retirarVacinasNoLaboratorio(){
 
 	int qntVacinasRetiradas = 0;
 
-  while(!vacinasFila_temp.empty()){
+	while(!vacinasFila_temp.empty()){
 		if(vacinasFila_temp.front().idLaboratorio == idLaboratorio){
 			qntVacinasRetiradas += 1;
 			switch (valor) {
 				case 1:
-					if (galpao.pilhaRitmo.size() < 100000 ){
-						galpao.pilhaRitmo.push(vacinasFila_temp.front());
+				if (galpao.pilhaRitmo.size() < 100000 ){
+					galpao.pilhaRitmo.push(vacinasFila_temp.front());
 
-					}else{
-						printf("\n(Ritmo) Capacidade Máxima Atingida\n");
-						return;
-					}
+				}else{
+					printf("\n(Ritmo) Capacidade Máxima Atingida\n");
+					return;
+				}
 				case 2:
 
-					if (galpao.pilhaBed.size() < 100000 ){
-						galpao.pilhaBed.push(vacinasFila_temp.front());
+				if (galpao.pilhaBed.size() < 100000 ){
+					galpao.pilhaBed.push(vacinasFila_temp.front());
 
-					}else{
-						printf("\n(Bed) Capacidade Máxima Atingida\n");
-						return;
-					}
+				}else{
+					printf("\n(Bed) Capacidade Máxima Atingida\n");
+					return;
+				}
 				case 3:
-				 	if (galpao.pilhaRaja.size() < 100000 ){
-						galpao.pilhaRaja.push(vacinasFila_temp.front());
+				if (galpao.pilhaRaja.size() < 100000 ){
+					galpao.pilhaRaja.push(vacinasFila_temp.front());
 
-					}else{
-						printf("\n(Raja) Capacidade Máxima Atingida\n");
-						return;
-					}
+				}else{
+					printf("\n(Raja) Capacidade Máxima Atingida\n");
+					return;
+				}
 				case 4:
 
-					if (galpao.pilhaRitmo.size() < 100000 ){
-						galpao.pilhaComp.push(vacinasFila_temp.front());
+				if (galpao.pilhaRitmo.size() < 100000 ){
+					galpao.pilhaComp.push(vacinasFila_temp.front());
 
-					}else{
-						printf("\n(Comp) Capacidade Máxima Atingida\n");
-						return;
-					}
+				}else{
+					printf("\n(Comp) Capacidade Máxima Atingida\n");
+					return;
+				}
 			}
 		}else{
 			newVacinaFilas.push(vacinasFila_temp.front());
 		}
 		vacinasFila_temp.pop();
-  }
+	}
 	vacinasFila = newVacinaFilas;
 
 	if (qntVacinasRetiradas > 0) {
@@ -438,79 +438,79 @@ void entregarVacinasCentroDistribuicao(){
 //aqui
 void entregarContinente(int value, int qnt){
 
-		printf("aquii xxxx");
+	printf("aquii xxxx");
 
-		stack<Vacina> vacinaToContinente;
+	stack<Vacina> vacinaToContinente;
 
-		int qntVacinasRequeridas = 0;
-		//crash
-	 while(!galpao.pilhaRaja.empty()){
-			 if(qntVacinasRequeridas < qnt){
-				 qntVacinasRequeridas +=1;
-			 	vacinaToContinente.push(galpao.pilhaRaja.top());
-			 	galpao.pilhaRaja.pop();
-			 }
-	 }
+	int qntVacinasRequeridas = 0;
+	//crash
+	while(!galpao.pilhaRaja.empty()){
+		if(qntVacinasRequeridas < qnt){
+			qntVacinasRequeridas +=1;
+			vacinaToContinente.push(galpao.pilhaRaja.top());
+			galpao.pilhaRaja.pop();
+		}
+	}
 	printf("aquii");
-		 while(!galpao.pilhaBed.empty()){
-			if(qntVacinasRequeridas < qnt){
-				qntVacinasRequeridas +=1;
-			 vacinaToContinente.push(galpao.pilhaBed.top());
-			 galpao.pilhaBed.pop();
-			}
+	while(!galpao.pilhaBed.empty()){
+		if(qntVacinasRequeridas < qnt){
+			qntVacinasRequeridas +=1;
+			vacinaToContinente.push(galpao.pilhaBed.top());
+			galpao.pilhaBed.pop();
 		}
+	}
 
 
-		while(!galpao.pilhaComp.empty()){
-			if(qntVacinasRequeridas < qnt){
-				qntVacinasRequeridas +=1;
-			 vacinaToContinente.push(galpao.pilhaComp.top());
-			 galpao.pilhaComp.pop();
-			}
+	while(!galpao.pilhaComp.empty()){
+		if(qntVacinasRequeridas < qnt){
+			qntVacinasRequeridas +=1;
+			vacinaToContinente.push(galpao.pilhaComp.top());
+			galpao.pilhaComp.pop();
 		}
+	}
 
-		while(!galpao.pilhaRitmo.empty()){
-			if(qntVacinasRequeridas < qnt){
-				qntVacinasRequeridas +=1;
-			 vacinaToContinente.push(galpao.pilhaRitmo.top());
-			 galpao.pilhaRitmo.pop();
-			}
+	while(!galpao.pilhaRitmo.empty()){
+		if(qntVacinasRequeridas < qnt){
+			qntVacinasRequeridas +=1;
+			vacinaToContinente.push(galpao.pilhaRitmo.top());
+			galpao.pilhaRitmo.pop();
 		}
+	}
 
-		char *nomeContinente;
+	char *nomeContinente;
 
-		//Entregar
-		while(!vacinaToContinente.empty()){
+	//Entregar
+	while(!vacinaToContinente.empty()){
 
-			switch (value) {
-				case 1:
-					centroAfrica.push(vacinaToContinente.top());
-					nomeContinente = "Africa";
-					break;
-				case 2:
-					centroAmerica.push(vacinaToContinente.top());
-					nomeContinente = "America";
-					break;
-				case 3:
-					centroAntartica.push(vacinaToContinente.top());
-					nomeContinente = "Antartica";
-					break;
-				case 4:
-					centroAsia.push(vacinaToContinente.top());
-					nomeContinente = "Asia";
-					break;
-				case 5:
-					centroOceania.push(vacinaToContinente.top());
-					nomeContinente = "Oceania";
-					break;
-				case 6:
-					centroEuropa.push(vacinaToContinente.top());
-					nomeContinente = "Europa";
-					break;
-			}
+		switch (value) {
+			case 1:
+			centroAfrica.push(vacinaToContinente.top());
+			nomeContinente = "Africa";
+			break;
+			case 2:
+			centroAmerica.push(vacinaToContinente.top());
+			nomeContinente = "America";
+			break;
+			case 3:
+			centroAntartica.push(vacinaToContinente.top());
+			nomeContinente = "Antartica";
+			break;
+			case 4:
+			centroAsia.push(vacinaToContinente.top());
+			nomeContinente = "Asia";
+			break;
+			case 5:
+			centroOceania.push(vacinaToContinente.top());
+			nomeContinente = "Oceania";
+			break;
+			case 6:
+			centroEuropa.push(vacinaToContinente.top());
+			nomeContinente = "Europa";
+			break;
 		}
-		printf("Vacinas Distribuídas para o continente: %s", nomeContinente);
-		printf("%d Unidades", qntVacinasRequeridas);
+	}
+	printf("Vacinas Distribuídas para o continente: %s", nomeContinente);
+	printf("%d Unidades", qntVacinasRequeridas);
 
 }
 
@@ -537,30 +537,30 @@ void exibirMenuDistribuicaoVacinas(){
 
 	switch (valor) {
 		case 1:
-			limparTela();
-			retirarVacinasNoLaboratorio();
-			break;
+		limparTela();
+		retirarVacinasNoLaboratorio();
+		break;
 		case 2:
-			limparTela();
-			entregarVacinasCentroDistribuicao();
-			break;
+		limparTela();
+		entregarVacinasCentroDistribuicao();
+		break;
 		case 3:
-			limparTela();
-			entregarVacinasCentroDistribuicao();
+		limparTela();
+		entregarVacinasCentroDistribuicao();
 
-			break;
+		break;
 		case 4:
-			limparTela();
-			listarVacinasEntregues();
-			break;
+		limparTela();
+		listarVacinasEntregues();
+		break;
 		case 5:
-			limparTela();
-			quantitativoVacinasPorContinente();
-			break;
+		limparTela();
+		quantitativoVacinasPorContinente();
+		break;
 		case 6:
-			limparTela();
-			exibirMenu();
-			break;
+		limparTela();
+		exibirMenu();
+		break;
 	}
 
 }
@@ -578,36 +578,36 @@ void criarArquivoPassword(){
 	//senha padrao
 	int hash = calculaHash(1111);
 
-  fprintf(arquivo, "%d", hash);
-  fclose(arquivo);
+	fprintf(arquivo, "%d", hash);
+	fclose(arquivo);
 
 }
 
 void lerArquivoPassword(int password){
-  char vetor[60];
-  int valor;
-  FILE *arquivo;
+	char vetor[60];
+	int valor;
+	FILE *arquivo;
 
-  arquivo = fopen("passwd.txt","rt");
+	arquivo = fopen("passwd.txt","rt");
 
-  if(arquivo == NULL){
-    printf("\nNão foi possivel abrir o arquivo\n");
-    exit(0);
-  }
+	if(arquivo == NULL){
+		printf("\nNão foi possivel abrir o arquivo\n");
+		exit(0);
+	}
 
-		//itoa(a,buffer,10);
+	//itoa(a,buffer,10);
 	int hash = calculaHash(password);
 	char variavelConvertida[20];
 
 	//Linux //Maneira de converter int para intring
- 	sprintf(variavelConvertida, "%d", hash);
+	sprintf(variavelConvertida, "%d", hash);
 
 
 	fscanf(arquivo,"%s %d", &vetor, &valor); // Le do arquivo e joga para as variáveis;
 	//fscanf(arquivo,"%s %d", &vetor, &valor);
 	//strcmp é utilizado para comparar "string"
-  //Da outra maneira vem lixo
-  //if (strcmp (vetor, password) == 0){
+	//Da outra maneira vem lixo
+	//if (strcmp (vetor, password) == 0){
 
 	if ((strcmp (vetor, variavelConvertida) == 0)){
 		printf("\nOlá Fulano");
@@ -636,17 +636,17 @@ void exibirVacinasFromLaboratorio(int labInt){
 
 	switch (labInt){
 		case 1:
-			laboratorio = &labRitmo;
-			break;
+		laboratorio = &labRitmo;
+		break;
 		case 2:
-			laboratorio = &labBed;
-			break;
+		laboratorio = &labBed;
+		break;
 		case 3:
-			laboratorio = &labComp;
-			break;
+		laboratorio = &labComp;
+		break;
 		case 4:
-			laboratorio = &labRaja;
-			break;
+		laboratorio = &labRaja;
+		break;
 	}
 
 	list<Vacina>::iterator vacina;
@@ -669,7 +669,7 @@ void exibirVacinasFromLaboratorio(int labInt){
 
 void exibirMenuListarVacinas(){
 
-  printf("\n---------- Relatório Vacinas Produzidas----------\n");
+	printf("\n---------- Relatório Vacinas Produzidas----------\n");
 	printf("1 - Exibir todas as vacinas \n");
 	printf("2 - Busca Refinada \n");
 	printf("3 - Listar Custo Total (Laboratórios)\n");
@@ -677,33 +677,33 @@ void exibirMenuListarVacinas(){
 	printf("5 - Voltar \n");
 
 
-  int valor = 0;
-  printf("Opção: ");
-  scanf("%d", &valor);
+	int valor = 0;
+	printf("Opção: ");
+	scanf("%d", &valor);
 
 	switch (valor) {
-    case 1:
-			for(int i = 1 ; i <= 4 ; i ++){
-				exibirVacinasFromLaboratorio(i);
-			}
-			exibirMenuListarVacinas();
-			break;
-    case 2:
-			exibirMenuBuscaRefinada();
-			break;
+		case 1:
+		for(int i = 1 ; i <= 4 ; i ++){
+			exibirVacinasFromLaboratorio(i);
+		}
+		exibirMenuListarVacinas();
+		break;
+		case 2:
+		exibirMenuBuscaRefinada();
+		break;
 		case 3:
-			exibirCustoTotalLaboratorio();
-			exibirMenuListarVacinas();
-			break;
+		exibirCustoTotalLaboratorio();
+		exibirMenuListarVacinas();
+		break;
 		case 4:
-			exibirTopLaboratorios();
-			break;
+		exibirTopLaboratorios();
+		break;
 		case 5:
-			exibirMenu();
-			break;
-  	default:
-    	printf("\n***** Opção Inválida *****\n");
-			exibirMenuListarVacinas();
+		exibirMenu();
+		break;
+		default:
+		printf("\n***** Opção Inválida *****\n");
+		exibirMenuListarVacinas();
 	}
 }
 
@@ -777,63 +777,63 @@ void exibirMenuBuscaRefinada(){
 	int valor = 0;
 	printf("Opção: ");
 	scanf("%d", &valor);
-
+	//foi
 	switch (valor) {
-    case 1:
-		 	buscarVacinaPorNumero();
-			break;
+		case 1:
+		buscarVacinaPorNumero();
+		break;
 		case 2:
-		 	buscarVacinaPorDataFabricacao();
-			break;
+		buscarVacinaPorDataFabricacao();
+		break;
 		case 3:
-			buscarVacinaPorDataValidade();
-			break;
+		buscarVacinaPorDataValidade();
+		break;
 		case 4:
-		 	buscarVacinaPorLaboratorio();
-			break;
+		buscarVacinaPorLaboratorio();
+		break;
 		case 5:
-			buscarVacinaPorNomeLaboratorio();
-			break;
+		buscarVacinaPorNomeLaboratorio();
+		break;
 		case 6:
-			exibirMenuListarVacinas();
-			break;
-  	default:
-    	printf("\n***** Opção Inválida *****\n");
-			exibirMenuBuscaRefinada();
+		exibirMenuListarVacinas();
+		break;
+		default:
+		printf("\n***** Opção Inválida *****\n");
+		exibirMenuBuscaRefinada();
 	}
 
 }
 
 void exibirMenuEscolherLabProducao(){
 
-  printf("\n---------- Produção de Vacinas----------");
-  printf("\n---------- Escolha o Laborário----------\n");
-  printf("1 - Ritmo (Laboratório) \n");
-  printf("2 - Bed (Laboratório) \n");
-  printf("3 - Raja (Laboratório) \n");
-  printf("4 - Comp (Laboratório) \n");
-  printf("5 - Voltar\n");
+	printf("\n---------- Produção de Vacinas----------");
+	printf("\n---------- Escolha o Laborário----------\n");
+	printf("1 - Ritmo (Laboratório) \n");
+	printf("2 - Bed (Laboratório) \n");
+	printf("3 - Raja (Laboratório) \n");
+	printf("4 - Comp (Laboratório) \n");
+	printf("5 - Voltar\n");
 
-  int valor = 0;
-  printf("Opção: ");
-  scanf("%d", &valor);
+	int valor = 0;
+	printf("Opção: ");
+	scanf("%d", &valor);
 
-  switch (valor) {
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-			limparTela();
-      produzirVacinas(valor);
-      break;
-    case 5:
-			limparTela();
-      exibirMenu();
-      break;
-    default:
-      printf("\n***** Opção Inválida *****\n");
-			exibirMenuEscolherLabProducao();
-  }
+	switch (valor) {
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		limparTela();
+		produzirVacinas(valor);
+		break;
+		case 5:
+		limparTela();
+		exibirMenu();
+		break;
+		default:
+		printf("\n***** Opção Inválida *****\n");
+		exibirMenuEscolherLabProducao();
+	}
 }
 
 
@@ -850,7 +850,7 @@ void buscarVacinaPorNumero(){
 
 	int qntVacinasEncontradas = 0;
 	queue<Vacina> vacinasFila_temp = vacinasFila;
-  while(!vacinasFila_temp.empty()){
+	while(!vacinasFila_temp.empty()){
 		if(vacinasFila_temp.front().numeroVacina == numeroVacina){
 
 			Laboratorio lab;
@@ -866,8 +866,8 @@ void buscarVacinaPorNumero(){
 			qntVacinasEncontradas += 1;
 		}
 
-    vacinasFila_temp.pop();
-  }
+		vacinasFila_temp.pop();
+	}
 
 	printf("\nEsta busca retornou %d resultados.\n", qntVacinasEncontradas);
 	exibirMenuBuscaRefinada();
@@ -885,7 +885,7 @@ void buscarVacinaPorDataFabricacao(){
 
 	int qntVacinasEncontradas = 0;
 	queue<Vacina> vacinasFila_temp = vacinasFila;
-  while(!vacinasFila_temp.empty()){
+	while(!vacinasFila_temp.empty()){
 		if(strcmp (vacinasFila_temp.front().dataFabricacao, data) == 0){
 
 			Laboratorio lab;
@@ -904,8 +904,8 @@ void buscarVacinaPorDataFabricacao(){
 			qntVacinasEncontradas += 1;
 		}
 
-    vacinasFila_temp.pop();
-  }
+		vacinasFila_temp.pop();
+	}
 
 	printf("\nEsta busca retornou %d resultados.\n", qntVacinasEncontradas);
 	exibirMenuBuscaRefinada();
@@ -922,7 +922,7 @@ void buscarVacinaPorDataValidade(){
 
 	int qntVacinasEncontradas = 0;
 	queue<Vacina> vacinasFila_temp = vacinasFila;
-  while(!vacinasFila_temp.empty()){
+	while(!vacinasFila_temp.empty()){
 		if(strcmp (vacinasFila_temp.front().dataValidade, data) == 0){
 
 			Laboratorio lab;
@@ -940,8 +940,8 @@ void buscarVacinaPorDataValidade(){
 			qntVacinasEncontradas += 1;
 		}
 
-    vacinasFila_temp.pop();
-  }
+		vacinasFila_temp.pop();
+	}
 
 	printf("\nEsta busca retornou %d resultados.\n", qntVacinasEncontradas);
 	exibirMenuBuscaRefinada();
@@ -962,7 +962,7 @@ void buscarVacinaPorNomeLaboratorio(){
 
 	int qntVacinasEncontradas = 0;
 	queue<Vacina> vacinasFila_temp = vacinasFila;
-  while(!vacinasFila_temp.empty()){
+	while(!vacinasFila_temp.empty()){
 		if(strcmp (vacinasFila_temp.front().nomeLaboratorio, nomeLaboratorioPesquisa) == 0){
 
 			Laboratorio lab;
@@ -978,8 +978,8 @@ void buscarVacinaPorNomeLaboratorio(){
 			qntVacinasEncontradas += 1;
 		}
 
-    vacinasFila_temp.pop();
-  }
+		vacinasFila_temp.pop();
+	}
 
 	printf("\nEsta busca retornou %d resultados.\n", qntVacinasEncontradas);
 	exibirMenuBuscaRefinada();
